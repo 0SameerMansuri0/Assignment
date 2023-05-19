@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const bookPrices = [567.50, 345.40, 767.45, 567.60, 600, 400, 239, 450, 350.50, 568.40, 880.56, 890.9];
+
+
+const x = bookPrices.filter(price => price < 500);
+console.log("Prices less than 500:", JSON.stringify(x));
+
+
+const y = bookPrices.find(price => price > 600);
+console.log("First price greater than 600:",y );
+
+
+const q = bookPrices.filter(price => price >=500 && price <= 600);
+console.log("Prices between 500 and 600:", JSON.stringify(q));
+
+const p = bookPrices.reduce((sum, price) => sum + price,0);
+console.log("Sum of all prices:", p);
+
+const r = bookPrices.reduce((sum, price) => sum + price, 100);
+console.log("Sum of all prices with initial value of 100:", r);
+
+
+const s = bookPrices.map(price => price * 2);
+console.log("Doubled prices:", JSON.stringify(s));
+
+
+const t = bookPrices.filter(price => price < 500).reduce((sum, price) => sum + price, 0);
+console.log("Sum of prices less than 500:",t );
+
+console.log("*******************************************************");
+
+
+
+const bookNames = ['Learn Java', 'Basics of Python', 'Advanced java Concepts', 'Web Basics', 'Easy learnng Python', 'Web Fundamentals', 'JAVA fundamentals'];
+
+
+const l = bookNames.filter(book => book.startsWith('Web'));
+console.log("Books starting with 'Web':", l);
+
+
+const m = bookNames.filter(book => book.toLowerCase().includes('java'));
+console.log("Books related to Java:", m);
+
+
+const o = bookNames.map(book => 'Neo-' + book);
+console.log("New book names:", o);
+
+
+const a = bookNames.reduce((sum, book) => sum + book.length, 0);
+console.log("Sum of lengths of every book name:", a);
+
+
+    </script>
+</body>
+</html>
