@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: black;
+        }
+
+        .slideshow {
+            position: relative;
+            width: 600px;
+            height: 600px;
+            overflow: hidden;
+        }
+
+        .slideshow img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="slideshow">
+        <img src="https://c4.wallpaperflare.com/wallpaper/532/79/825/the-avengers-iron-man-black-widow-loki-wallpaper-preview.jpg"
+            alt="Image 1">
+        <img src="https://c4.wallpaperflare.com/wallpaper/1017/584/846/avengers-age-of-ultron-the-avengers-thor-hulk-wallpaper-preview.jpg"
+            alt="Image 2">
+        <img src="https://c4.wallpaperflare.com/wallpaper/763/359/603/avengers-infinity-war-thor-ragnarok-movies-marvel-cinematic-universe-wallpaper-preview.jpg"
+            alt="Image 3">
+        <img src="https://c4.wallpaperflare.com/wallpaper/713/13/242/movies-marvel-cinematic-universe-marvel-comics-avengers-endgame-captain-america-hd-wallpaper-preview.jpg"
+            alt="Image 4">
+        <img src="https://c4.wallpaperflare.com/wallpaper/566/514/449/marvel-cinematic-universe-marvel-comics-iron-man-spider-man-wallpaper-preview.jpg"
+            alt="Image 5">
+        <img src="https://c4.wallpaperflare.com/wallpaper/607/632/959/iron-man-tony-stark-iron-man-3-robert-downey-jr-wallpaper-preview.jpg"
+            alt="Image 6">
+        <img src="https://c4.wallpaperflare.com/wallpaper/258/126/425/marvel-cinematic-universe-black-panther-marvel-comics-wallpaper-preview.jpg"
+            alt="Image 7">
+        <img src="https://c4.wallpaperflare.com/wallpaper/178/891/583/guardians-of-the-galaxy-vol-2-marvel-cinematic-universe-rocket-raccoon-groot-wallpaper-preview.jpg"
+            alt="Image 8">
+        <img src="https://c4.wallpaperflare.com/wallpaper/37/979/598/iron-man-hulk-marvel-cinematic-universe-marvel-comics-wallpaper-preview.jpg"
+            alt="Image 9">
+        <img src="https://c4.wallpaperflare.com/wallpaper/93/876/994/doctor-strange-marvel-comics-marvel-cinematic-universe-benedict-cumberbatch-wallpaper-preview.jpg"
+            alt="Image 10">
+
+
+    </div>
+
+    <script>
+
+        $(document).ready(function () {
+            const images = $('.slideshow img');
+            let currentIndex = 0;
+
+            // Show the first image
+            images.eq(currentIndex).fadeIn();
+
+            // Start the slideshow
+            setInterval(function () {
+                const nextIndex = (currentIndex + 1) % images.length;
+                images.eq(currentIndex).fadeOut();
+                images.eq(nextIndex).fadeIn();
+                currentIndex = nextIndex;
+            }, 3000);
+        });
+ 
+    </script>
+
+</body>
+
+</html>
