@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <Script>
+        class Book 
+        {
+            
+            constructor(id, name, author, price) {
+                this._id = id;
+                this._name = name;
+                this._author = author;
+                this._price = price;
+            }
+
+            get id() {
+                return this._id;
+            }
+
+            set id(value) {
+                this._id = value;
+            }
+
+            get name() {
+                return this._name;
+            }
+
+            set name(value) {
+                this._name = value;
+            }
+
+            get author() {
+                return this._author;
+            }
+
+            set author(value) {
+                this._author = value;
+            }
+
+            get price() {
+                return this._price;
+            }
+
+            set price(value) {
+                this._price = value;
+            }
+
+            getDetails() {
+                return `Book ID: ${this._id}, Name: ${this._name}, Author: ${this._author}, Price: ${this._price}`;
+            }
+        }
+
+
+        const books = [
+            new Book(1, 'Learn Java', 'John Doe', 567.50),
+            new Book(2, 'Basics of Python', 'Jane Smith', 345.40),
+            new Book(3, 'Advanced java Concepts', 'Mark Johnson', 767.45),
+            new Book(4, 'Web Basics', 'Emily Brown', 567.60),
+            new Book(5, 'Easy learnng Python', 'Michael Davis', 600),
+            new Book(6, 'Hard learnng Python', 'mansuri Davis', 600)
+        ];
+
+
+
+
+        console.log("Iterating Book array using forEach:");
+        books.forEach(book => console.log(book.getDetails()));
+
+
+        const pricesLessThan500 = books.filter(book => book.price < 500);
+        console.log("\nBooks with price less than 500:");
+        pricesLessThan500.forEach(book => console.log(book.getDetails()));
+
+
+        const firstPriceGreaterThan600 = books.find(book => book.price > 600);
+        console.log("\nFirst book with price greater than 600:");
+        console.log(firstPriceGreaterThan600.getDetails());
+
+
+        const javaRelatedBooks = books.filter(book => book.name.toLowerCase().includes('java'));
+        console.log("\nJava related books:");
+        javaRelatedBooks.forEach(book => console.log(book.getDetails()));
+
+
+        const sumOfPrices = books.reduce((sum, book) => sum + book.price,0);
+        console.log("\nSum of all book prices:", sumOfPrices);
+
+
+        const bookAuthors = books.map(book => book.author);
+        console.log("\nArray of book authors:");
+        console.log(bookAuthors);
+
+        console.log("\nBooks by m/M:");
+         books.filter(book => book.author.startsWith('m') || book.author.startsWith('M')).forEach(book => console.log(book.getDetails()));
+        
+        //booksByAuthor.forEach(book => console.log(book.getDetails()));
+
+    </Script>
+</body>
+
+</html>
